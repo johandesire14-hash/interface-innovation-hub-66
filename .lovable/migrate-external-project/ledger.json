@@ -1,0 +1,8 @@
+[
+{"capability":"code","source":"github repo","outcome":"copied as-is (same stack)","status":"verified","next_action":"none"},
+{"capability":"schema+records","source":"Firebase Firestore + external Supabase","outcome":"migrate","status":"pending","next_action":"recreate in Lovable Cloud; request exports"},
+{"capability":"auth","source":"Firebase Auth","outcome":"migrate","status":"pending","next_action":"replace with Lovable Cloud auth"},
+{"capability":"storage","source":"Firebase Storage","outcome":"migrate","status":"pending","next_action":"move files"},
+{"capability":"payments webhook","source":"KPay /webhook/subscription-status","outcome":"preserve","status":"pending","next_action":"add KPAY_WEBHOOK_SECRET, MANSA keys"},
+{"capability":"bots","source":"Discord/Telegram","outcome":"preserve","status":"pending","next_action":"add tokens"}
+]

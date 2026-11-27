@@ -10,33 +10,167 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ApercuAffiliesRouteImport } from './routes/apercu-affilies'
+import { Route as AppRouteImport } from './routes/app'
+import { Route as CguRouteImport } from './routes/cgu'
+import { Route as DocumentationRouteImport } from './routes/documentation'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as MentionsLegalesRouteImport } from './routes/mentions-legales'
+import { Route as OnboardingRouteImport } from './routes/onboarding'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as AffiliateCodeRouteImport } from './routes/affiliate.$code'
+import { Route as ProfileUserIdRouteImport } from './routes/profile.$userId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApercuAffiliesRoute = ApercuAffiliesRouteImport.update({
+  id: '/apercu-affilies',
+  path: '/apercu-affilies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppRoute = AppRouteImport.update({
+  id: '/app',
+  path: '/app',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CguRoute = CguRouteImport.update({
+  id: '/cgu',
+  path: '/cgu',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DocumentationRoute = DocumentationRouteImport.update({
+  id: '/documentation',
+  path: '/documentation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MentionsLegalesRoute = MentionsLegalesRouteImport.update({
+  id: '/mentions-legales',
+  path: '/mentions-legales',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OnboardingRoute = OnboardingRouteImport.update({
+  id: '/onboarding',
+  path: '/onboarding',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AffiliateCodeRoute = AffiliateCodeRouteImport.update({
+  id: '/affiliate/$code',
+  path: '/affiliate/$code',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileUserIdRoute = ProfileUserIdRouteImport.update({
+  id: '/profile/$userId',
+  path: '/profile/$userId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/apercu-affilies': typeof ApercuAffiliesRoute
+  '/app': typeof AppRoute
+  '/cgu': typeof CguRoute
+  '/documentation': typeof DocumentationRoute
+  '/login': typeof LoginRoute
+  '/mentions-legales': typeof MentionsLegalesRoute
+  '/onboarding': typeof OnboardingRoute
+  '/privacy': typeof PrivacyRoute
+  '/affiliate/$code': typeof AffiliateCodeRoute
+  '/profile/$userId': typeof ProfileUserIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/apercu-affilies': typeof ApercuAffiliesRoute
+  '/app': typeof AppRoute
+  '/cgu': typeof CguRoute
+  '/documentation': typeof DocumentationRoute
+  '/login': typeof LoginRoute
+  '/mentions-legales': typeof MentionsLegalesRoute
+  '/onboarding': typeof OnboardingRoute
+  '/privacy': typeof PrivacyRoute
+  '/affiliate/$code': typeof AffiliateCodeRoute
+  '/profile/$userId': typeof ProfileUserIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/apercu-affilies': typeof ApercuAffiliesRoute
+  '/app': typeof AppRoute
+  '/cgu': typeof CguRoute
+  '/documentation': typeof DocumentationRoute
+  '/login': typeof LoginRoute
+  '/mentions-legales': typeof MentionsLegalesRoute
+  '/onboarding': typeof OnboardingRoute
+  '/privacy': typeof PrivacyRoute
+  '/affiliate/$code': typeof AffiliateCodeRoute
+  '/profile/$userId': typeof ProfileUserIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/apercu-affilies'
+    | '/app'
+    | '/cgu'
+    | '/documentation'
+    | '/login'
+    | '/mentions-legales'
+    | '/onboarding'
+    | '/privacy'
+    | '/affiliate/$code'
+    | '/profile/$userId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/apercu-affilies'
+    | '/app'
+    | '/cgu'
+    | '/documentation'
+    | '/login'
+    | '/mentions-legales'
+    | '/onboarding'
+    | '/privacy'
+    | '/affiliate/$code'
+    | '/profile/$userId'
+  id:
+    | '__root__'
+    | '/'
+    | '/apercu-affilies'
+    | '/app'
+    | '/cgu'
+    | '/documentation'
+    | '/login'
+    | '/mentions-legales'
+    | '/onboarding'
+    | '/privacy'
+    | '/affiliate/$code'
+    | '/profile/$userId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ApercuAffiliesRoute: typeof ApercuAffiliesRoute
+  AppRoute: typeof AppRoute
+  CguRoute: typeof CguRoute
+  DocumentationRoute: typeof DocumentationRoute
+  LoginRoute: typeof LoginRoute
+  MentionsLegalesRoute: typeof MentionsLegalesRoute
+  OnboardingRoute: typeof OnboardingRoute
+  PrivacyRoute: typeof PrivacyRoute
+  AffiliateCodeRoute: typeof AffiliateCodeRoute
+  ProfileUserIdRoute: typeof ProfileUserIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +182,91 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/apercu-affilies': {
+      id: '/apercu-affilies'
+      path: '/apercu-affilies'
+      fullPath: '/apercu-affilies'
+      preLoaderRoute: typeof ApercuAffiliesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app': {
+      id: '/app'
+      path: '/app'
+      fullPath: '/app'
+      preLoaderRoute: typeof AppRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cgu': {
+      id: '/cgu'
+      path: '/cgu'
+      fullPath: '/cgu'
+      preLoaderRoute: typeof CguRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/documentation': {
+      id: '/documentation'
+      path: '/documentation'
+      fullPath: '/documentation'
+      preLoaderRoute: typeof DocumentationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentions-legales': {
+      id: '/mentions-legales'
+      path: '/mentions-legales'
+      fullPath: '/mentions-legales'
+      preLoaderRoute: typeof MentionsLegalesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/onboarding': {
+      id: '/onboarding'
+      path: '/onboarding'
+      fullPath: '/onboarding'
+      preLoaderRoute: typeof OnboardingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/affiliate/$code': {
+      id: '/affiliate/$code'
+      path: '/affiliate/$code'
+      fullPath: '/affiliate/$code'
+      preLoaderRoute: typeof AffiliateCodeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile/$userId': {
+      id: '/profile/$userId'
+      path: '/profile/$userId'
+      fullPath: '/profile/$userId'
+      preLoaderRoute: typeof ProfileUserIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ApercuAffiliesRoute: ApercuAffiliesRoute,
+  AppRoute: AppRoute,
+  CguRoute: CguRoute,
+  DocumentationRoute: DocumentationRoute,
+  LoginRoute: LoginRoute,
+  MentionsLegalesRoute: MentionsLegalesRoute,
+  OnboardingRoute: OnboardingRoute,
+  PrivacyRoute: PrivacyRoute,
+  AffiliateCodeRoute: AffiliateCodeRoute,
+  ProfileUserIdRoute: ProfileUserIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
