@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import {
   Check,
   ChevronLeft,
@@ -71,9 +72,21 @@ export const ProductAffiliateSharePage: React.FC<ProductAffiliateSharePageProps>
     ? `mailto:${encodeURIComponent(email.trim())}?subject=${encodeURIComponent(`Découvre ${productName}`)}&body=${encodeURIComponent(message)}`
     : `mailto:?subject=${encodeURIComponent(`Découvre ${productName}`)}&body=${encodeURIComponent(message)}`;
 
-  return (
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, []);
+
+  if (!mounted) return null;
+
+  return createPortal(
     <main
-      className="fixed inset-0 z-[60] flex min-h-dvh flex-col overflow-y-auto bg-[#191919] text-white"
+      className="fixed inset-0 z-[200] flex h-dvh flex-col overflow-y-auto overscroll-contain flex-col overflow-y-auto bg-[#191919] text-white"
       aria-label="Partager le lien affilié"
     >
       <header className="relative flex min-h-20 shrink-0 items-center justify-center border-b border-white/[0.06] px-16">
@@ -229,5 +242,7 @@ export const ProductAffiliateSharePage: React.FC<ProductAffiliateSharePageProps>
         )}
       </section>
     </main>
+  ,
+    document.body,
   );
 };
