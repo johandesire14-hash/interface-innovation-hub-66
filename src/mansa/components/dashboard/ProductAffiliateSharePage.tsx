@@ -214,9 +214,9 @@ export const ProductAffiliateSharePage: React.FC<ProductAffiliateSharePageProps>
           </p>
         )}
 
-        {affiliateUrl && (
+        {(
           <>
-            <div className="mt-8 w-full">
+            <div className={`mt-8 w-full ${affiliateUrl ? "" : "pointer-events-none opacity-50"}`} aria-disabled={!affiliateUrl}>
               <button
                 type="button"
                 onClick={() => void share()}
@@ -284,6 +284,7 @@ export const ProductAffiliateSharePage: React.FC<ProductAffiliateSharePageProps>
               <span className="h-px flex-1 bg-white/10" />
             </div>
             <form
+              aria-disabled={!affiliateUrl}
               className="flex min-h-16 w-full items-center gap-2 rounded-2xl border border-white/[0.06] bg-white/[0.04] p-2"
               onSubmit={(event) => {
                 event.preventDefault();
@@ -302,6 +303,7 @@ export const ProductAffiliateSharePage: React.FC<ProductAffiliateSharePageProps>
               />
               <button
                 type="submit"
+                disabled={!affiliateUrl}
                 className="inline-flex min-h-12 shrink-0 items-center gap-2 rounded-xl bg-white px-4 text-sm font-semibold text-[#191919] hover:bg-zinc-200"
               >
                 <Send className="size-4" /> Envoyer
@@ -375,6 +377,7 @@ export const ProductAffiliateSharePage: React.FC<ProductAffiliateSharePageProps>
               </div>
             )}
 
+            {affiliateUrl && (
             <div className="mt-7 flex w-full items-center gap-2 rounded-2xl border border-white/10 bg-white/[0.04] p-2">
               <input
                 readOnly
@@ -392,6 +395,7 @@ export const ProductAffiliateSharePage: React.FC<ProductAffiliateSharePageProps>
                 {copied ? "Copié" : "Copier"}
               </button>
             </div>
+            )}
           </>
         )}
       </section>
