@@ -3871,7 +3871,7 @@ export const EnterpriseMemberView: React.FC<EnterpriseMemberViewProps> = ({
                       disabled={isCreatingAffiliateLink}
                       aria-label="Partager"
                       title="Partager"
-                      className="flex size-8 items-center justify-center rounded-full border border-emerald-400/30 bg-emerald-500/10 text-emerald-300 hover:bg-emerald-500/20 disabled:opacity-50"
+                      className="flex size-8 items-center justify-center rounded-full border border-white/10 bg-white/5 text-zinc-300 hover:bg-white/10 hover:text-white disabled:opacity-50"
                     >
                       <Share2 className="size-4" />
                     </button>
