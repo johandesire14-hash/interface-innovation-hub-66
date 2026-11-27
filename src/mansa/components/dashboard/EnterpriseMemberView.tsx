@@ -3826,6 +3826,8 @@ export const EnterpriseMemberView: React.FC<EnterpriseMemberViewProps> = ({
                   affiliateUrl={affiliateLinkUrl || undefined}
                   isCreatingLink={isCreatingAffiliateLink}
                   linkError={affiliateLinkError}
+                  affiliateUid={user?.uid || ""}
+                  currency="XOF"
                   onBack={() => setIsAffiliateSharePageOpen(false)}
                 />
               )}

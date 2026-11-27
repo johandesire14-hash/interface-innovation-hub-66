@@ -31,6 +31,30 @@ describe("ProductAffiliateSharePage", () => {
     expect(onBack).toHaveBeenCalledOnce();
   });
 
+  it("affiche le bloc de partage complet sous le titre, avec Reddit et l'historique", async () => {
+    render(
+      <ProductAffiliateSharePage
+        productName="Cours photo"
+        affiliateUrl="https://mansa.example/affiliate/ABC123"
+        onBack={() => {}}
+      />,
+    );
+
+    expect(screen.getByRole("link", { name: "Partager sur Reddit" })).toHaveAttribute(
+      "href",
+      expect.stringContaining(encodeURIComponent("https://mansa.example/affiliate/ABC123")),
+    );
+    expect(screen.getByRole("link", { name: "Partager sur WhatsApp" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Partager sur X" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Partager sur LinkedIn" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Partager sur Facebook" })).toBeInTheDocument();
+    expect(screen.getByText("Ou envoyer un e-mail d’invitation")).toBeInTheDocument();
+    expect(screen.getByRole("textbox", { name: "Adresse e-mail du destinataire" })).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole("button", { name: "Historique des invitations" }));
+    expect(screen.getByText(/Aucun parrainage enregistré|Connectez-vous à votre compte/)).toBeInTheDocument();
+  });
+
   it("affiche la raison si la création du lien échoue au lieu de masquer la page", () => {
     render(
       <ProductAffiliateSharePage
